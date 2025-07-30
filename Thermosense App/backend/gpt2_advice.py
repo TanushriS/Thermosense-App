@@ -7,7 +7,7 @@ def get_advice_from_gpt2(battery_temp: float, ambient_temp: float, device_state:
     Calls the GPT-2 model hosted on Hugging Face to generate advice
     based on temperature and device state.
 
-    Returns a natural language tip or a fallback message.
+    Returns a natural language tip.
     """
     try:
         result = client.predict(
@@ -19,4 +19,4 @@ def get_advice_from_gpt2(battery_temp: float, ambient_temp: float, device_state:
         return result
     except Exception as e:
         print("Error calling GPT-2 advice generator:", e)
-        return "⚠️ GPT-2 service failed. Using fallback."
+        return "⚠️ GPT-2 service failed. Try again later"
